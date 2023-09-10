@@ -1,3 +1,4 @@
 .vscode
 dom.js
 *.wasm
+.clangd

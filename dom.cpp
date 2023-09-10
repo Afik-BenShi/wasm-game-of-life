@@ -24,6 +24,6 @@ using namespace client;
 {
         HTMLElement *body = client::document.get_body();
         Element *article = body->getElementsByTagName("article")->item(0);
-        resizeControl(article);
+        canvas::resizeControl(article);
         client::console.log("Bye from webMain!");
 }
