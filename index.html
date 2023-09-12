@@ -29,17 +29,17 @@
 			.alive {
 				background-color: #222;
 			}
-			.header {
+			.resize-control {
 				margin-bottom: 20px;
 				margin-left: 30px;
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				width: 50%;
 			}
-			.header label {
+			.resize-control label {
 				font-size: small;
 			}
-			.header input {
+			.resize-control input {
 				width: 300px;
 				height: 30px;
 				font-size: large;
@@ -48,7 +48,7 @@
 	</head>
 	<body>
 		<header>
-			<div class="header">
+			<div class="resize-control">
 				<label for="rows">Number of rows</label>
 				<label for="cols">Number of columns</label>
 				<input
@@ -66,6 +66,7 @@
 					max="100"
 				/>
 			</div>
+			<button id="tick">One tick</button>
 		</header>
 		<article></article>
 	</body>

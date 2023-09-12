@@ -1,4 +1,4 @@
-#include <cheerp/client.h>
+#include "canvasUtils.hpp"
 std::tuple<int, int> idToArr(client::String *id)
 {
     int comma = id->indexOf(",");

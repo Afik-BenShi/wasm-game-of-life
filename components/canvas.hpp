@@ -1,7 +1,7 @@
 #include <string>
 #include <cheerp/client.h>	  //Misc client side stuff
 #include <cheerp/clientlib.h> //Complete DOM/HTML5 interface
-#include "canvasUtils.cpp"
+#include "canvasUtils.hpp"
 
 namespace canvas
 {
