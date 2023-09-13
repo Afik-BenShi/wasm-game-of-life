@@ -9,7 +9,7 @@ Therefore, [you can apparently simulate Conways Game of Life inside Conways Game
 ## But why would you do this to yourself? 
 ~~Becasue I love pain~~
 
-But actually, few reasons come to mind:
+But actually, a few reasons come to mind:
 1. **Wasm is a cool new technology** I wanted to learn about, and what is a better way to learn other then doing an actual project.
 2. **Summer vacation** is long and I wanted to keep my skills sharp (yes, I could have gone back to my project from last summer but I didn't want to).
 
