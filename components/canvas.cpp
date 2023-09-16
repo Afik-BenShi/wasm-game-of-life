@@ -87,7 +87,7 @@ namespace canvas
 
     [[cheerp::genericjs]] int ***initializeCanvas(int ***boardPtr, HTMLElement *article)
     {
-        int rowsNum = 4, colsNum = 4;
+        int rowsNum = 50, colsNum = 70;
         auto *rowsInput = static_cast<HTMLInputElement *>(document.getElementById("rows"));
         auto *colsInput = static_cast<HTMLInputElement *>(document.getElementById("cols"));
         rowsInput->set_value(rowsNum);
