@@ -114,28 +114,63 @@ namespace canvas
         return boardPtr;
     }
 
-    [[cheerp::genericjs]] void test(int ***boardPtr, client::HTMLButtonElement *tickbtn, HTMLElement *article)
+    [[cheerp::genericjs]] void updateBasedOnDiff(int **diff)
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                if (diff[i][j])
+                {
+                    auto id = std::to_string(i) + "," + std::to_string(j);
+                    auto *button = static_cast<HTMLElement *>(client::document.getElementById(id.c_str()));
+                    if (button->get_className() == new client::String("alive"))
+                    {
+                        button->set_className("dead");
+                    }
+                    else
+                    {
+                        button->set_className("alive");
+                    }
+                }
+            }
+        }
+    }
+
+    [[cheerp::genericjs]] void tickButton(int ***boardPtr, client::HTMLButtonElement *tickbtn)
     {
         tickbtn->addEventListener(
             "click",
             cheerp::Callback([&]() -> void
                              {
                                  int **diff = tick(boardPtr, rows, cols);
-                                 for (int i = 0; i < rows; i++)
+                                 updateBasedOnDiff(diff); }));
+    }
+
+    [[cheerp::genericjs]] void startStop(int ***boardPtr, client::HTMLButtonElement *controlBtn)
+    {
+
+        controlBtn->addEventListener(
+            "click",
+            cheerp::Callback([&]() -> void
+                             {
+                                 int working = false;
+                                 double interval;
+                                 if (controlBtn->get_innerText() == new client::String("start"))
                                  {
-                                     for (int j = 0; j < cols; j++)
-                                     {
-                                         if (diff[i][j])
-                                         {
-                                            auto id = std::to_string(i) + "," + std::to_string(j);
-                                            auto *button = static_cast<HTMLElement *>(client::document.getElementById(id.c_str()));
-                                            if (button->get_className() == new client::String("alive")){
-                                                button->set_className("dead");
-                                            } else {
-                                                button->set_className("alive");
-                                            }
-                                         }
-                                     }
+                                     working = true;
+                                     interval = client::setInterval(
+                                         cheerp::Callback([&]() -> void
+                                                          {
+                                                 int **diff = tick(boardPtr, rows, cols);
+                                                 updateBasedOnDiff(diff); }),
+                                         50.0);
+                                     controlBtn->set_innerText("stop");
+                                 }
+                                 else
+                                 {
+                                     client::clearInterval();
+                                     controlBtn->set_innerText("start");
                                  } }));
     }
 }

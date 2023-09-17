@@ -12,5 +12,7 @@ using namespace client;
     HTMLElement *article = static_cast<HTMLElement *>(body->getElementsByTagName("article")->item(0));
     canvas::initializeCanvas(boardPtr, article);
     HTMLButtonElement *tickBtn = static_cast<HTMLButtonElement *>(client::document.getElementById("tick"));
-    canvas::test(boardPtr, tickBtn, article);
+    canvas::tickButton(boardPtr, tickBtn);
+    HTMLButtonElement *controlBtn = static_cast<HTMLButtonElement *>(client::document.getElementById("control"));
+    canvas::startStop(boardPtr, controlBtn);
 }
