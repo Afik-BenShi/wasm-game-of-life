@@ -21,6 +21,6 @@ Hence
 ## How to run?
 Compile using Cheerp wasm compiler
 ```
-/opt/cheerp/bin/clang++ index.cpp -o dom.js -O3
+/opt/cheerp/bin/clang++ index.cpp -o index.js -O3
 ```
 Then use some server (I used vscode extension live server) to run index.html.

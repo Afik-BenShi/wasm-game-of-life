@@ -1,4 +1,4 @@
 .vscode
-dom.js
+index.js
 *.wasm
 .clangd
